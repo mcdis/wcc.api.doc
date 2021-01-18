@@ -15,7 +15,7 @@
   <nav>
     {% for item in site.apis %}
     <li class="title">
-      <a href="{{ item.url }}">{{ item.nav-title }}</a>
+      <a href="{{baseurl}}{{item.url}}">{{ item.nav-title }}</a>
     </li>
     {% endfor %}
     <li class="title">
