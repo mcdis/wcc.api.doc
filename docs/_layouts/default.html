@@ -15,11 +15,11 @@
   <nav>
     {% for item in site.apis %}
     <li class="title">
-      <a href="{{baseurl}}{{item.url}}">{{ item.nav-title }}</a>
+      <a href="{{site.baseurl}}{{item.url}}">{{ item.nav-title }}</a>
     </li>
     {% endfor %}
     <li class="title">
-      <a href="/"> Home</a>
+      <a href="{{site.baseurl}}"> Home</a>
     </li>
   </nav>
 </div><!-- end header -->
