@@ -1,5 +1,6 @@
 ---
 layout: default
+index: true
 ---
 # Blending Worlds Server Rest API
 

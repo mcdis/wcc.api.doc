@@ -659,11 +659,9 @@ dt {
 
 #header nav li a {
     color: white;
-    border: 1px solid #0b5291;
-    background: linear_gradient(#205fbd, #10559e);
+    border: 1px solid #696969;
     border-radius: 2px;
-    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
-    background-color: #2079bd;
+    background-color: #363636;
     padding: 10px 12px;
     margin-top: 6px;
     line-height: 14px;
@@ -676,7 +674,6 @@ dt {
     background: linear_gradient(#195c96, #0e3b7f);
     background-color: #105c9e;
     border: 1px solid #0e457f;
-    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
 }
 
 #header nav li.fork {
@@ -688,6 +685,11 @@ dt {
 #header nav li.fork a {
     background: #303030;
     border-color: #3c3c3c;
+}
+
+#header nav li.title.active a {
+    background: #016adb;
+    border-color: #016adb;
 }
 
 #header nav li.downloads {

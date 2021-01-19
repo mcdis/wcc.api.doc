@@ -9,8 +9,9 @@ API используется для работы с устройствами
 
 ***
 ## Одобрение устройства
-> **POST** `/devices/approve`
-
+```http
+POST /devices/approve  HTTP/1.1
+```
 Запрос позволяет одобрить устройству взаимодействия с сервером
 
 В теле передается серийные номера устройств с разделителем `\n`.
@@ -22,14 +23,16 @@ yyyyyyyyyyyyyyy
 zzzzzzzzzzzzzzz
 ```
 
->> Ответ `OK 200` 
+> Ответ `OK 200` 
 
 ***
 ## Список одобренных устройств
-> **GET** `/devices/get-approved`
+```http
+GET /devices/get-approved  HTTP/1.1
+```
 
 Возвращает список всех одобренных устройств сети.
->> Ответ `json`
+> Ответ `json`
 ```js
 [serial: string] // набор серийных номеров
 ``` 
@@ -37,22 +40,26 @@ zzzzzzzzzzzzzzz
 
 ***
 ## Список активных устройств
-> **GET** `/devices/get-alived`
+```http
+GET /devices/get-alived  HTTP/1.1
+```
 
 Возвращает список устройств сети с котороми установленно соединения.
 
->> Ответ `json`
+> Ответ `json`
 ```js
 [serial:string] // набор серийных номеров
 ``` 
 
 ***
 ## Список активных устройств ожидающих одобрение
-> **GET** `/devices/list-not-approved`
+```http
+GET /devices/list-not-approved  HTTP/1.1
+```
 
 Возвращает список устройств сети с котороми установленно соединения, но которые не получили аккредитацию и ожидают одобрения.
 
->> Ответ `json`
+> Ответ `json`
 ```js
 [{
   ip:string, // входящий ip запроса,
@@ -63,14 +70,16 @@ zzzzzzzzzzzzzzz
 
 ***
 ## Получение дерева состояния устройства
-> **GET** `/devices/get-state?deviceId:number`
+ ```http
+GET /devices/get-state?deviceId:number  HTTP/1.1
+```
 
 Возвращает дерево последнего состояния устройства.
 
 Параметры запросы:
  - `deviceId:number` порядковый номер устройства
   
->> Ответ `json`
+> Ответ `json`
 ```js
 [{
   path:string, // адрес/идентифиактор состояния,
@@ -83,7 +92,9 @@ zzzzzzzzzzzzzzz
  
 ***
 ## Выборка по дереву состояний устройств
-> **GET** `/devices/query-state?path:string?&deviceId:number?`
+```http
+GET /devices/query-state?path:string?&deviceId:number?  HTTP/1.1
+```
 
 Возвращает выборку из дерево последних состояния устройств.
 
@@ -91,7 +102,7 @@ zzzzzzzzzzzzzzz
  - `path:string?` ветка идентификаторов 
  - `deviceId:number?` порядковый номер устройства
  
->> Ответ `json`
+> Ответ `json`
 ```js
 {
   deviceSerial:{ // для каждого серийного номера устройства 
@@ -106,14 +117,16 @@ zzzzzzzzzzzzzzz
  
 ***
 ## Информация об устройстве
-> **GET** `/devices/get-device-info?deviceId:number?`
+```http
+GET /devices/get-device-info?deviceId:number?  HTTP/1.1
+```
 
 Возвращает детальную информацию об устройстве.
 
 Параметры запросы:
  - `deviceId:number` порядковый номер устройства
  
->> Ответ `json`
+> Ответ `json`
 ```js
 {
   isAlived: bool, // установленно ли с устройством соединение
@@ -133,11 +146,13 @@ zzzzzzzzzzzzzzz
  
 ***
 ## Список устройств
-> **GET** `/devices/list`
+```http
+GET /devices/list  HTTP/1.1
+```
 
 Получение списка всех устройств.
 
->> Ответ `json`
+> Ответ `json`
 ```js
 [{
   isAlived:bool, // установленно ли с устройством соединение
@@ -157,7 +172,9 @@ zzzzzzzzzzzzzzz
 
 ***
 ## Обновление пользовательской информации
-> **POST** `/devices/update-info?deviceId:number?`
+```http
+POST /devices/update-info?deviceId:number?  HTTP/1.1
+```
 
 Запрос позволяет поменять:
  - группу;
@@ -169,15 +186,17 @@ zzzzzzzzzzzzzzz
   - `tags:string[]?`, // новый список ярлыков
   - `userGroup:string?` // пользовательская группа
 
->> Ответ `OK 200`
+> Ответ `OK 200`
 
 ***
 ## Список поддерживаемых комманд
-> **GET** `/devices/commands-list?deviceId:number?`
+```http
+GET /devices/commands-list?deviceId:number?  HTTP/1.1
+```
 
 Запросить список поддержиываем комманд напрямую с устройства.
  
->> Ответ `json`
+> Ответ `json`
 ```js
 [{
   path:string, // идентфиикатор команды
@@ -188,7 +207,9 @@ zzzzzzzzzzzzzzz
 
 ***
 ## Запросить устройсвто выполнить команду
-> **POST** `/devices/command-exec?deviceId:number&cmd:string`
+```http
+POST /devices/command-exec?deviceId:number&cmd:string  HTTP/1.1
+```
 
 Запрос позволят послать устройству команду на выполнение и получить результат.
 
@@ -199,4 +220,4 @@ zzzzzzzzzzzzzzz
 Тело запрос `json`, которые описывает параметры команды. 
 Обычно это `settings` полученные из списка комманд.
 
->> Ответ: зависит от комманды, может быть любой ответ, в соответствии с командой.
+> Ответ: зависит от комманды, может быть любой ответ, в соответствии с командой.

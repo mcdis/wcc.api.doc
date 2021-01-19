@@ -9,19 +9,23 @@ Info API используется для получения информации
 
 ***
 ## Версия сервера
-> **GET** `/info/version`
+```http
+GET /info/version HTTP/1.1
+```
 
 Версия ПО сервера
 
->> Ответ `string` 
+> Ответ `string` 
 
 ***
 ## Сводка
-> **GET** `/info/summary`
+```http
+GET /info/summary HTTP/1.1
+```
 
 Получить сводку по сервисах
 
->> Ответ `json`
+> Ответ `json`
 ```js
 {
   version: string, // версия сервера

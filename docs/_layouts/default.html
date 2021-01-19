@@ -16,17 +16,25 @@
     <li class="fork"><a href="{{ site.github.repository_url }}">GitHub</a></li>
     {% for item in site.apis %}
       {% if item.toplevel %}
-        <li class="title">
+        {% if page.toplevel and page.nav-title == item.nav-title %}
+          <li class="title active">
+        {% else %}
+          <li class="title">
+        {% endif %}
           <a href="{{site.baseurl}}{{item.url}}">{{ item.nav-title }}</a>
         </li>
       {% endif %}
     {% endfor %}
+
+    {% if page.index %}
+    <li class="title active">
+      {% else %}
     <li class="title">
+      {% endif %}
       <a href="{{site.baseurl}}/index.html"> Home</a>
     </li>
   </nav>
 </div><!-- end header -->
-
 <div class="wrapper">
   <section>
     {{ content }}

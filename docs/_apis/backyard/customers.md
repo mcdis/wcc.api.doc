@@ -5,15 +5,17 @@ short-title: Customers Backyard API
 ---
 # Customers Backyard API
 
-Для отправки запрос используется Backyard API с целью __<u>customers</u>__.
+Для отправки запрос используется [Backyard API]({{site.baseurl}}/apis/backyard.html) с целью __<u>customers</u>__.
 
 ***
 ## Список клиентов
-> request:`list`
+```
+list
+```
 
 Запрос позволяет получить перечень клиентов
 
->> Ответ: `json`
+> Ответ: `json`
 ```js
 [{
   friendlyName:string?, // Имя клиента
@@ -23,18 +25,19 @@ short-title: Customers Backyard API
 
 ***
 ## Информация о клиенте
-> request: `get`
+```
+get
+```
 
-> Запрос `json`
-
-> Тело запроса:
+Запрос `json`
+Тело запроса:
 ```js
 {
   documentId:number // Идентификатор клиента 
 }
 ```
 
->>Ответ `json`:
+>Ответ `json`:
 ```js
 {
   lastModified:string, // Время изменения сведений ISO8601
@@ -50,18 +53,18 @@ short-title: Customers Backyard API
 
 ***
 ## Создание клиента
-> request: `create`
-
-> Запрос `json`
-
-> Тело запроса:
+```
+create
+```
+Запрос `json`
+Тело запроса:
 ```js
 {
   friendlyName:string // Имя клиента 
 }
 ```
 
->>Ответ `json`:
+>Ответ `json`:
 ```js
 {
   documentId:number? // номер документа со сведениями о клиенте
@@ -70,11 +73,13 @@ short-title: Customers Backyard API
 
 ***
 ## Изменение сведений о клиенте
-> request: `update`
 
-> Запрос `json`
+```
+update
+```
 
-> Тело запроса:
+Запрос `json`
+Тело запроса:
 ```js
 {
   documentId:number, // Номер документа
@@ -86,4 +91,4 @@ short-title: Customers Backyard API
 }
 ```
 
->>Ответ `OK 200`
+>Ответ `OK 200`

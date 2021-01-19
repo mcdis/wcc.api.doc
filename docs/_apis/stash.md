@@ -9,14 +9,16 @@ Stash API используется для передачи данных серв
 
 ***
 ## Создание сессии загрузки
-> **POST** `/stash/begin?filesize:number`
+```http
+POST /stash/begin?filesize:number HTTP/1.1
+```
 
 Запрос создает сессию загрузки файла.
 
 Параметры запроса:
   - `filesize:number`: размер загружаемого файла
   
->>Ответ: `json`
+>Ответ: `json`
 ```js
 {
   sessionId:String // идентификатор сессии
@@ -25,7 +27,9 @@ Stash API используется для передачи данных серв
 
 ***
 ## Загрузка блока
-> **POST** `/stash/post?session:string&offset:number`
+```http
+POST /stash/post?session:string&offset:number HTTP/1.1
+```
 
 Запрос загружает блок данных в сессию
 
@@ -33,11 +37,13 @@ Stash API используется для передачи данных серв
   - `session:string`: сессия
   - `offset:number`: смещение от начала файла
   
->> Ответ: `200 OK`
+> Ответ: `200 OK`
 
 ***
 ## Завершение сессии
-> **POST** `/stash/end?session:string&hashAlgorithm:string?&hash:string?`
+```http
+POST /stash/end?session:string&hashAlgorithm:string?&hash:string?  HTTP/1.1
+```
 
 Запрос завершает загрузку данных
 Параметры запроса:
@@ -47,7 +53,7 @@ Stash API используется для передачи данных серв
     * `sha1`
   - `hash:string?` - hex строка хеш значения  
   
->>Ответ: `json`
+>Ответ: `json`
 ```js
 {
   storedId:string // Идентификатор сохраненных данных
