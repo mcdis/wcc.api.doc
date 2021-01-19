@@ -4,6 +4,11 @@
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
 
+u {
+  text-decoration-line: underline;
+  text-decoration-width: 2px;
+  text-decoration-color: #ffe27e; }
+
 /* Corrects inline-block display not defined in IE6/7/8/9 & FF3 */
 audio, canvas, video {
   display: inline-block;
@@ -471,8 +476,10 @@ section img {
 blockquote {
   border-left: 3px solid #ffcc00;
   margin: 0;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 5px;
   font-style: italic; }
+  blockquote blockquote {
+    border-left: 3px solid #00b428; }
 
 code {
   font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;

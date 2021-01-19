@@ -38,3 +38,5 @@ plugins:
 collections:
   apis:
     output: true
+    backyard:
+      output: true

@@ -14,9 +14,11 @@
 <div id="header">
   <nav>
     {% for item in site.apis %}
-    <li class="title">
-      <a href="{{site.baseurl}}{{item.url}}">{{ item.nav-title }}</a>
-    </li>
+      {% if item.toplevel %}
+        <li class="title">
+          <a href="{{site.baseurl}}{{item.url}}">{{ item.nav-title }}</a>
+        </li>
+      {% endif %}
     {% endfor %}
     <li class="title">
       <a href="{{site.baseurl}}/index.html"> Home</a>
@@ -26,7 +28,6 @@
 
 <div class="wrapper">
   <section>
-    {{site.baseurl}}
     {{ content }}
   </section>
 </div>
