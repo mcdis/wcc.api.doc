@@ -5,7 +5,7 @@ short-title: Media library Backyard API
 ---
 # Media-Library Backyard API
 
-Для отправки запрос используется [Backyard API]({{site.baseurl}}/apis/backyard.html) с целью __<u>customers</u>__.
+Для отправки запрос используется [Backyard API]({{site.baseurl}}/apis/backyard.html) с целью __<u>media-library</u>__.
 
 ***
 ## Список группы папок
