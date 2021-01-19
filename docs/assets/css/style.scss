@@ -681,7 +681,13 @@ dt {
 
 #header nav li.fork {
     float: left;
+    background: #303030;
+    border-color: #3c3c3c;
     margin-left: 0px;
+}
+#header nav li.fork a {
+    background: #303030;
+    border-color: #3c3c3c;
 }
 
 #header nav li.downloads {
