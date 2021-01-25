@@ -211,4 +211,49 @@ enqueue
 }
 ```
 
+Поддерживаемый mime типы смотри отдельным разделом ниже.
+
 > Ответ: `OK 200`
+
+***
+## Постановка файла в приоритетную очередь загрузки и ожидание обработки
+```
+priority-enqueue
+```
+Запрос позволяет поставить файл из [Stash]({{site.baseurl}}/apis/stash.html) в очередь на загрузку в Media Library Storage.
+Отличие от `enqueue` в том, что здесь идет ожидание загрузки в БД хранения и его обработки.
+Ответом возвращается номер документа, под которым хранятя данные. 
+Получить информацию об обработанном файле можно отдельным запросом.
+
+Тело запроса `json`:
+```js
+{
+  bucket:number?, // идентифкатор папки куда заливается файл 
+  stashId:string? // идентифкатор файла помещенного в Stash, Stash Stored Id
+  filename:string, // имя файла 
+  filetype:string // mime тип файла
+}
+```
+
+> Ответ: `json`
+```
+{
+  docId:number // номер документа (записи)
+}
+```
+
+***
+## Приложение: поддержиываемы MIME типы для загрузки данных
+
+  - `video/quicktime`
+  - `video/mp4`
+  - `video/avi`
+  - `video/x-matroska`
+  - `video/quicktime`
+  - `video/msvideo`
+  - `video/x-msvideo`
+  - `video/x-ms-wmv`
+  - `image/jpg`
+  - `image/jpeg`
+  - `image/png`
+  - `application/zip`

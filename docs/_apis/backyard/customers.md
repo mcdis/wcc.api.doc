@@ -8,6 +8,29 @@ short-title: Customers Backyard API
 Для отправки запрос используется [Backyard API]({{site.baseurl}}/apis/backyard.html) с целью __<u>customers</u>__.
 
 ***
+## Создать клиента
+
+```
+create
+```
+
+Запрос позволяет создать нового клиента.
+тело запросы: `json`:
+```
+{
+   friendlyName
+}
+```
+
+> Ответ: `json`
+```js
+{
+  documentId:number // номер документа
+}
+```
+
+
+***
 ## Список клиентов
 ```
 list

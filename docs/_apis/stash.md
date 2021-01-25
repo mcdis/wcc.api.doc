@@ -36,8 +36,22 @@ POST /stash/post?session:string&offset:number HTTP/1.1
 Параметры запроса:
   - `session:string`: сессия
   - `offset:number`: смещение от начала файла
-  
+
+Http заголовки:
+- Content-length, размер содержимогою
+ 
+В **body** кладутся сами двоичные данные, которые будут записаны в файл со смещением **offset**.
 > Ответ: `200 OK`
+
+Пример:
+```http
+POST /stash/post?session=93E47134D46_329B0197&offset=1048576 HTTP/1.1
+Content-Length: 1048576
+<ApiHey>: <ApiKeyValue>
+
+
+бинарные данный на 1048576 байт
+```
 
 ***
 ## Завершение сессии
