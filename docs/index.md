@@ -3,6 +3,7 @@ layout: default
 index: true
 ---
 # Blending Worlds Server Rest API
+Обновлено: {{ site.time | date: '%Y.%m.%d %H:%M'}}
 
 ***
 ## Автоматизированные запросы
