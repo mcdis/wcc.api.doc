@@ -197,7 +197,7 @@ POST /devices/update-info?deviceId:number?  HTTP/1.1
  - дружественное имя.
  
 Тело запросы: `json`:
-```json
+```js
 {
   friendlyName:string?, // новое пользовательское имя 
   tags:string[]?, // новый список ярлыков
