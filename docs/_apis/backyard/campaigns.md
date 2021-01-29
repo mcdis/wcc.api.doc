@@ -8,6 +8,33 @@ short-title: Campaigns Backyard API
 Для отправки запрос используется [Backyard API]({{site.baseurl}}/apis/backyard.html) с целью __<u>campaigns</u>__.
 
 ***
+## Создание кампании
+
+Везде где используется `namespace` действует следющие значения:
+ - для кампании не привязанной к клиенту, `namespace` имеет значение `default`;
+ - для клиента с `customerId`, `namespace` имеет значение: `customers.{customerId}`
+
+```
+create
+```
+Запрос позволяет создать кампанию
+
+Запрос: `json`
+```js
+{
+  namespace:string, // группа кампаний
+  title:string // название кампании
+}
+``` 
+
+> Ответ: `json`
+```js
+{
+  documentId:number // идентфиикатор документа
+}
+```
+
+***
 ## Список кампаний
 
 ```
